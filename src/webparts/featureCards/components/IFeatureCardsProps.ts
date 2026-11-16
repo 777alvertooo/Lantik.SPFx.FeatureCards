@@ -1,7 +1,8 @@
+import { IFeatureCardItem } from '../FeatureCardsWebPart';
+
 export interface IFeatureCardsProps {
-  description: string;
+  tituloSeccion: string;
+  tarjetas: IFeatureCardItem[];
   isDarkTheme: boolean;
-  environmentMessage: string;
   hasTeamsContext: boolean;
-  userDisplayName: string;
 }
