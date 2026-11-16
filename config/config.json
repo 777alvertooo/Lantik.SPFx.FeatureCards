@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "feature-cards-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/featureCards/FeatureCardsWebPart.js",
+          "manifest": "./src/webparts/featureCards/FeatureCardsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "FeatureCardsWebPartStrings": "lib/webparts/featureCards/loc/{locale}.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+  }
+}

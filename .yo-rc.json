@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.19.1",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.12.0"
+    },
+    "version": "1.18.2",
+    "libraryName": "lantik-sp-fx-feature-cards",
+    "libraryId": "b4cbf0e5-2879-4171-83df-018f52d4cb59",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "lantik-sp-fx-feature-cards",
+    "solutionShortDescription": "lantik-sp-fx-feature-cards description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
