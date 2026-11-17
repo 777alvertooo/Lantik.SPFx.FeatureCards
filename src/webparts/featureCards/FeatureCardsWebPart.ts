@@ -8,6 +8,7 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
+import { IconPicker } from '@pnp/spfx-controls-react/lib/IconPicker';
 import { FilePicker, IFilePickerResult } from '@pnp/spfx-controls-react/lib/FilePicker';
 
 import FeatureCards from './components/FeatureCards';
@@ -16,8 +17,8 @@ import { IFeatureCardsProps } from './components/IFeatureCardsProps';
 export interface IFeatureCardItem {
   texto: string;
   subtexto: string;
-  imagenUrl: string;
-  enlace?: string; 
+  icono: string;
+  enlace?: string;
 }
 
 export interface IFeatureCardsWebPartProps {
@@ -102,15 +103,33 @@ export default class FeatureCardsWebPart extends BaseClientSideWebPart<IFeatureC
                       required: true
                     },
                     {
-                      id: "imagenUrl",
-                      title: "Imagen",
+                      id: "icono",
+                      title: "Icono",
                       type: CustomCollectionFieldType.custom,
                       required: true,
                       onCustomRender: (field, value, onUpdate, item, itemId) => {
+                        return React.createElement(IconPicker, {
+                          buttonLabel: value || "Elegir icono",
+                          currentIcon: value,
+                          renderOption: "dialog",
+                          onSave: (iconName: string) => {
+                            onUpdate(field.id, iconName);
+                          },
+                          key: itemId
+                        });
+                      }
+                    },
+                    {
+                      id: "enlace",
+                      title: "Enlace de redirección",
+                      type: CustomCollectionFieldType.custom,
+                      required: false,
+                      onCustomRender: (field, value, onUpdate, item, itemId) => {
                         return React.createElement(FilePicker, {
-                          buttonLabel: value ? "Cambiar imagen" : "Elegir imagen",
-                          accepts: [".gif", ".jpg", ".jpeg", ".bmp", ".dib", ".tif", ".tiff", ".ico", ".png", ".jxr", ".svg"],
+                          buttonLabel: value ? "Cambiar destino" : "Elegir destino",
                           context: this.context as any,
+                          hideLocalUploadTab: true,
+                          hideStockImages: true,
                           onSave: (filePickerResult: IFilePickerResult[]) => {
                             if (filePickerResult && filePickerResult.length > 0) {
                               onUpdate(field.id, filePickerResult[0].fileAbsoluteUrl);
@@ -125,15 +144,6 @@ export default class FeatureCardsWebPart extends BaseClientSideWebPart<IFeatureC
                         });
                       }
                     }
-                    /* 
-                    ,
-                    {
-                      id: "enlace",
-                      title: "Enlace de redirección",
-                      type: CustomCollectionFieldType.url,
-                      required: false
-                    }
-                    */
                   ],
                   disabled: false
                 })
