@@ -3,7 +3,7 @@
   "solution": {
     "name": "lantik-sp-fx-feature-cards-client-side-solution",
     "id": "b4cbf0e5-2879-4171-83df-018f52d4cb59",
-    "version": "1.0.0.0",
+    "version": "1.0.0.1",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
@@ -30,7 +30,7 @@
         "title": "lantik-sp-fx-feature-cards Feature",
         "description": "The feature that activates elements of the lantik-sp-fx-feature-cards solution.",
         "id": "169c34a9-cd80-4cf1-89ef-9c21e31a6f5d",
-        "version": "1.0.0.0"
+        "version": "1.0.0.1"
       }
     ]
   },
